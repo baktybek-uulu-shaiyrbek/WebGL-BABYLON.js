@@ -1,0 +1,79 @@
+html, body {
+    overflow: hidden;
+    width   : 100%;
+    height  : 100%;
+    margin  : 0;
+    padding : 0;
+    background: #0d0e12;
+}
+
+#renderCanvas {
+    width       : 100%;
+    height      : 100%;
+    display     : block;
+    touch-action: none;
+}
+
+#ui {
+    position   : absolute;
+    top        : 8px;
+    right      : 8px;
+    width      : 190px;
+    padding    : 6px 10px;
+    background : #1a1a1acc;
+    backdrop-filter: blur(6px);
+    color      : #eee;
+    font       : 11px/1.55 ui-monospace, monospace;
+    border     : 1px solid #ffffff1a;
+    border-radius: 4px;
+    /* прокручивается панель целиком, а не список внутри неё: иначе первые
+       группы уезжают за край и кажутся выключенными */
+    max-height : calc(100vh - 30px);
+    overflow-y : auto;
+}
+
+#ui label {
+    display : block;
+    cursor  : pointer;
+}
+
+#depth {
+    width      : 46px;
+    margin-left: 6px;
+    background : #333;
+    color      : #eee;
+    border     : 1px solid #555;
+    border-radius: 3px;
+    font       : inherit;
+}
+
+#stat {
+    color         : #8a8a8a;
+    border-bottom : 1px solid #ffffff1a;
+    padding-bottom: 4px;
+    margin-bottom : 4px;
+}
+
+/* индикатор накопления кадров: пока идёт уточнение картинки, полоска растёт */
+#progress {
+    height       : 2px;
+    background   : #ffffff14;
+    margin       : 4px 0;
+    border-radius: 1px;
+    overflow     : hidden;
+}
+
+#progress > i {
+    display   : block;
+    height    : 100%;
+    width     : 0;
+    background: #6ba7ff;
+    transition: width .15s linear;
+}
+
+#hint {
+    color      : #6a6a6a;
+    border-top : 1px solid #ffffff1a;
+    margin-top : 4px;
+    padding-top: 4px;
+}

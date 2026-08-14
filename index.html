@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Fractal</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs/6.45.1/babylon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
-    <style>
-        html, body {
-            overflow: hidden;
-            width   : 100%;
-            height  : 100%;
-            margin  : 0;
-            padding : 0;
-        }
-
-        #renderCanvas {
-            width   : 100%;
-            height  : 100%;
-            touch-action: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
     <canvas id="renderCanvas"></canvas>
-    <script src="main.js"></script>
+
+    <div id="ui">
+        <label>глубина <input id="depth" type="number" min="0" step="1"></label>
+        <div id="stat"></div>
+        <div id="progress"><i id="bar"></i></div>
+        <div id="groups"></div>
+        <div id="hint">WASD / стрелки — полёт<br>колесо — зум в курсор<br>перетаскивание — поворот</div>
+    </div>
+
+    <!-- Обычные скрипты, а не модули: ES-модули браузер не грузит с file://.
+         Файлы в js/ собраны из src/*.ts, порядок подключения = порядок зависимостей. -->
+    <script src="js/camera.js"></script>
+    <script src="js/fractal.js"></script>
+    <script src="js/shaders.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
